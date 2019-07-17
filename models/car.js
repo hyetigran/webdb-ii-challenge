@@ -1,4 +1,4 @@
-const db = require("./database.db3");
+const db = require("../data/db");
 
 module.exports = {
   get() {

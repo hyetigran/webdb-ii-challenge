@@ -20,6 +20,18 @@ router.put("/:id", (req, res) => {
       res.status(200).json({ cars: result });
     })
     .catch(err => {
-      res.status(500).json({ err });
+      res.status(500).json({ err: "Could not update car" });
     });
 });
+
+router.delete("/:id", (req, res) => {
+  Car.remove(req.params.id)
+    .then(result => {
+      res.status(200).json({ cars: result });
+    })
+    .catch(err => {
+      res.status(500).json({ err: "Could not delete car" });
+    });
+});
+
+module.exports = router;
